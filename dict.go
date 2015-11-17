@@ -23,7 +23,7 @@ func main() {
 	if *ls {
 		dicts, err := client.Dicts()
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "%v: %v", os.Args[0], err)
+			fmt.Fprintf(os.Stderr, "%v: %v\n", os.Args[0], err)
 			os.Exit(1)
 		}
 		for _, dict := range dicts {
@@ -34,7 +34,7 @@ func main() {
 	for _, arg := range flag.Args() {
 		defs, err := client.Define(*dn, arg)
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "%v: %v", os.Args[0], err)
+			fmt.Fprintf(os.Stderr, "%v: %v\n", os.Args[0], err)
 			os.Exit(1)
 		}
 		for _, def := range defs {
